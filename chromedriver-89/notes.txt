@@ -1,0 +1,6 @@
+---------ChromeDriver 89.0.4389.23 (2021-01-28)---------
+Supports Chrome version 89
+Resolved issue 3667: Timed out receiving a message from renderer - ChromeDriver 87.0.4280.20 [Pri-]
+Resolved issue 3675: GetElementLocation uses inView method which mishandles boolean as array [Pri-]
+Resolved issue 3682: GetElementRegion returns incorrect size for elements which are partially out of viewport [Pri-]
+Resolved issue 3690: ChromeDriver fails if extensions use chrome.windows API [Pri-]
