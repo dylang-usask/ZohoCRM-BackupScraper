@@ -29,6 +29,7 @@ API:
 from selenium import webdriver
 from config import *
 import time
+from pyotp import *
 # from parsel import Selector
 # from bs4 import BeautifulSoup
 # import json
@@ -74,7 +75,19 @@ class ZohoCRMBackupScraper:
             time.sleep(1)
             self.driver.find_element_by_id('nextbtn').click()
             time.sleep(6)
-            # self.driver.get("")
+            # try:
+            #     # locate OTP field
+            #     otp_placeholder = self.driver.find_element_by_id(
+            #         "input__phone_verification_pin")  # ("/html/body/main/section[1]/div[2]/form")
+            #     print("found 2fa verification")
+            #     # creating tokens to send OTP
+            #     token = totp.now()
+            #     otp_placeholder.send_keys(token)
+            #     submit_button = self.driver.find_element_by_id(
+            #         "two-step-submit-button")  # ("/html/body/main/section[1]/div[2]/form/button")
+            #     submit_button.click()
+            # except:
+            #     print(" 2FA authentication not required or failed to complete 2FA ")
             time.sleep(42)
             print("Successfully logged in!")
         else:
