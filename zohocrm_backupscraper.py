@@ -55,12 +55,17 @@ class ZohoCRMBackupScraper:
     # the login info must be stored in the config file
     def signIn(self):
         self.driver.get("https://accounts.zoho.com/signin")
+        # time.sleep(2)
         if self.ifExist("//form[1]"):
+            print("Form loaded")
             self.driver.find_element_by_id('login_id').send_keys(loginInfo["email"])
+            print("Found email")
             time.sleep(1)
             self.driver.find_element_by_id('nextbtn').click()
+            print("Next")
             time.sleep(1)
             self.driver.find_element_by_id('password').send_keys(loginInfo["password"])
+            print("Found password")
             time.sleep(1)
             self.driver.find_element_by_id('nextbtn').click()
             print("Successfully logged in!")
@@ -93,11 +98,17 @@ class ZohoCRMBackupScraper:
         download_audit_log_link.click()
         time.sleep(42)
 
+    def cleanup(self):
+        self.driver.quit()
+
 
 def main():
     scraper = ZohoCRMBackupScraper()
     scraper.signIn()
+    time.sleep(2)
     scraper.fetchAuditLog()
+    time.sleep(2)
+    scraper.cleanup()
 
 if __name__ == "__main__":
     main()
