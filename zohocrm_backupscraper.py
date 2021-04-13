@@ -55,15 +55,6 @@ class ZohoCRMBackupScraper:
     # the login info must be stored in the config file
     def signIn(self):
         self.driver.get("https://accounts.zoho.com/signin")
-
-        # <input
-        # id = "login_id"
-        # placeholder = "Email address or mobile number"
-        # value = ""
-        # type = "email"
-        # name = "LOGIN_ID"
-        # class ="textbox" required="" onkeypress="clearCommonError('login_id')" onkeyup="checking()" onkeydown="checking()" autocapitalize="off" autocomplete="on" autocorrect="off" tabindex="1" >
-
         if self.ifExist("//form[1]"):
             self.driver.find_element_by_id('login_id').send_keys(loginInfo["email"])
             time.sleep(1)
@@ -72,40 +63,10 @@ class ZohoCRMBackupScraper:
             self.driver.find_element_by_id('password').send_keys(loginInfo["password"])
             time.sleep(1)
             self.driver.find_element_by_id('nextbtn').click()
-            time.sleep(6)
-            # try:
-            #     # locate OTP field
-            #     otp_placeholder = self.driver.find_element_by_id(
-            #         "input__phone_verification_pin")  # ("/html/body/main/section[1]/div[2]/form")
-            #     print("found 2fa verification")
-            #     # creating tokens to send OTP
-            #     token = totp.now()
-            #     otp_placeholder.send_keys(token)
-            #     submit_button = self.driver.find_element_by_id(
-            #         "two-step-submit-button")  # ("/html/body/main/section[1]/div[2]/form/button")
-            #     submit_button.click()
-            # except:
-            #     print(" 2FA authentication not required or failed to complete 2FA ")
-            time.sleep(42)
             print("Successfully logged in!")
         else:
             print("Error logging in!")
 
-
-        # # locate login button and click it
-        # login_button = self.driver.find_element_by_xpath("/html/body/main/section[1]/div[2]/form/button")
-        # login_button.click()
-        # try :
-        #     # locate OTP field
-        #     otp_placeholder = self.driver.find_element_by_id("input__phone_verification_pin") #("/html/body/main/section[1]/div[2]/form")
-        #     print("found 2fa verification")
-        #     #creating tokens to send OTP
-        #     token = totp.now()
-        #     otp_placeholder.send_keys(token)
-        #     submit_button = self.driver.find_element_by_id("two-step-submit-button") #("/html/body/main/section[1]/div[2]/form/button")
-        #     submit_button.click()
-        # except :
-        #     print(" 2FA authentication not required or failed to complete 2FA ")
 
 
 
