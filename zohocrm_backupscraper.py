@@ -68,6 +68,30 @@ class ZohoCRMBackupScraper:
             print("Error logging in!")
 
 
+    def fetchAuditLog(self):
+        # It seems that it can take a couple of calls to load the page before it actually loads.
+        self.driver.get("https://crm.zoho.com/crm/org685568171/settings/auditlog")
+        self.driver.get("https://crm.zoho.com/crm/org685568171/settings/auditlog")
+
+
+        # -- This did not work to trigger the export of the audit log:
+        # self.driver.execute_script("auditLog.exportAuditLog();")
+
+        # This does work for triggering the export of the audit log:
+        print("AuditLog Page Loading")
+        time.sleep(6)
+        audit_log_link = self.driver.find_element_by_link_text("Export Audit Log")
+        # audit_log_link = self.driver.find_element_by_partial_link_text("Export Audit Log")
+        print("audit_log_link = ")
+        print(audit_log_link)
+        audit_log_link.click()
+        time.sleep(20)
+        # self.driver.save_screenshot('screenshot.png')
+        download_audit_log_link = self.driver.find_element_by_link_text("Download")
+        print("download_audit_log_link = ")
+        print(download_audit_log_link)
+        download_audit_log_link.click()
+        time.sleep(42)
 
 
 def main():
