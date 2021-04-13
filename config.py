@@ -1,2 +1,4 @@
 loginInfo = {
+    "email": "",
+    "password": ""
 }
