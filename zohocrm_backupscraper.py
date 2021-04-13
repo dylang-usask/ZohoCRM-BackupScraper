@@ -29,13 +29,7 @@ API:
 from selenium import webdriver
 from config import *
 import time
-from pyotp import *
-# from parsel import Selector
-# from bs4 import BeautifulSoup
-# import json
-# from selenium.webdriver.common.keys import Keys
 
-##
 
 class ZohoCRMBackupScraper:
     def __init__(self):
