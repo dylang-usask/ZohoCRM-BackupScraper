@@ -34,6 +34,10 @@ import time
 class ZohoCRMBackupScraper:
     def __init__(self):
         chrome_options = webdriver.ChromeOptions()
+        # You'll want to change this folder to the location where you want to have the file 'Audit Log.csv' saved to.
+        prefs = {'download.default_directory': '/Users/dylang/Documents/ButterMilk-Projects/AetherAutomation/kaizen-2021/ZohoCRM-BackupScraper'}
+        chrome_options.add_experimental_option('prefs', prefs)
+
         # chrome_options.add_argument('--headless')
         # chrome_options.add_argument('--no-sandbox')  # required when running as root user. otherwise you would get no sandbox errors.
         # chrome_options.add_argument('--disable-dev-shm-usage')
