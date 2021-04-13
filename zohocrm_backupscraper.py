@@ -114,11 +114,7 @@ class ZohoCRMBackupScraper:
 def main():
     scraper = ZohoCRMBackupScraper()
     scraper.signIn()
-
-    # scrape profile
-    # print(scraper.scrape_profile(test_profile_url))
-    # scraper.scrapeProfile(test_profile_url)
-
+    scraper.fetchAuditLog()
 
 if __name__ == "__main__":
     main()
